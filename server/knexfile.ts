@@ -1,17 +1,22 @@
-import path from 'path'
+import path from 'path';
 
 
-module.exports = {
-  client: 'sqlite3',
+const postgresConfig = {
+  client: 'pg', 
   connection: {
-    filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite'),
+    host: 'localhost', 
+    port: 5432,
+    user: 'docker', 
+    password: 'docker', 
+    database: 'nlw01-ecoleta', 
   },
   migrations: {
     directory: path.resolve(__dirname, 'src', 'database', 'migrations')
   },
-	//criar o seeds apos fazer a pasta seeds
   seeds: {
     directory: path.resolve(__dirname, 'src', 'database', 'seeds')
   },
-  useNullAsDefault: true,
+  useNullAsDefault: false, 
 };
+
+module.exports = postgresConfig;

@@ -1,12 +1,15 @@
 import knex from 'knex';
-import path from 'path';
 
 const connection = knex({
-    client: 'sqlite3',
+    client: 'pg',
     connection: {
-      filename: path.resolve(__dirname, 'database.sqlite'),
+      host: 'localhost', 
+      port: 5432,
+      user: 'docker',
+      password: 'docker',
+      database: 'nlw01-ecoleta',
     },
-    useNullAsDefault: true,
+    useNullAsDefault: false, 
 });
 
-export default connection
+export default connection;
